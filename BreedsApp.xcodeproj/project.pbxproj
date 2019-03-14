@@ -12,6 +12,10 @@
 		DD404ABA223962CA008188CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD404AB8223962CA008188CA /* Main.storyboard */; };
 		DD404ABC223962F1008188CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD404ABB223962F1008188CA /* Assets.xcassets */; };
 		DD404ABF223962F1008188CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD404ABD223962F1008188CA /* LaunchScreen.storyboard */; };
+		DD6BC937223A9D0E00A8D782 /* BreedsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BC936223A9D0E00A8D782 /* BreedsDetailsViewController.swift */; };
+		DD6BC939223AA44800A8D782 /* BreedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BC938223AA44800A8D782 /* BreedImage.swift */; };
+		DD6BC93C223AB08500A8D782 /* SubBreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BC93B223AB08500A8D782 /* SubBreedsViewController.swift */; };
+		DD6BC93E223AC2D100A8D782 /* SubBreedListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BC93D223AC2D100A8D782 /* SubBreedListResponse.swift */; };
 		DD963DB022397CA1007F700E /* DogApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD963DAF22397CA1007F700E /* DogApi.swift */; };
 		DDC8DA6E223A785800E90F94 /* BreedsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8DA6D223A785800E90F94 /* BreedsListResponse.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +28,10 @@
 		DD404ABB223962F1008188CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD404ABE223962F1008188CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD404AC0223962F1008188CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD6BC936223A9D0E00A8D782 /* BreedsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsDetailsViewController.swift; sourceTree = "<group>"; };
+		DD6BC938223AA44800A8D782 /* BreedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImage.swift; sourceTree = "<group>"; };
+		DD6BC93B223AB08500A8D782 /* SubBreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBreedsViewController.swift; sourceTree = "<group>"; };
+		DD6BC93D223AC2D100A8D782 /* SubBreedListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBreedListResponse.swift; sourceTree = "<group>"; };
 		DD963DAF22397CA1007F700E /* DogApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogApi.swift; sourceTree = "<group>"; };
 		DDC8DA6D223A785800E90F94 /* BreedsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +79,8 @@
 			children = (
 				DD963DAF22397CA1007F700E /* DogApi.swift */,
 				DDC8DA6D223A785800E90F94 /* BreedsListResponse.swift */,
+				DD6BC938223AA44800A8D782 /* BreedImage.swift */,
+				DD6BC93D223AC2D100A8D782 /* SubBreedListResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,18 +88,28 @@
 		DD404AC82239641B008188CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DD6BC93A223AAFF800A8D782 /* Sub-Breeds */,
 				DDC8DA6F223A791F00E90F94 /* Delegate */,
-				DD963DA822397725007F700E /* BreedsList */,
+				DD963DA822397725007F700E /* Breeds */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		DD963DA822397725007F700E /* BreedsList */ = {
+		DD6BC93A223AAFF800A8D782 /* Sub-Breeds */ = {
+			isa = PBXGroup;
+			children = (
+				DD6BC93B223AB08500A8D782 /* SubBreedsViewController.swift */,
+			);
+			path = "Sub-Breeds";
+			sourceTree = "<group>";
+		};
+		DD963DA822397725007F700E /* Breeds */ = {
 			isa = PBXGroup;
 			children = (
 				DD3EBD16223A7BB900F62509 /* BreedsTableViewController.swift */,
+				DD6BC936223A9D0E00A8D782 /* BreedsDetailsViewController.swift */,
 			);
-			path = BreedsList;
+			path = Breeds;
 			sourceTree = "<group>";
 		};
 		DDC8DA6C223A762B00E90F94 /* View */ = {
@@ -181,7 +201,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6BC93C223AB08500A8D782 /* SubBreedsViewController.swift in Sources */,
+				DD6BC939223AA44800A8D782 /* BreedImage.swift in Sources */,
 				DD404AB5223962CA008188CA /* AppDelegate.swift in Sources */,
+				DD6BC937223A9D0E00A8D782 /* BreedsDetailsViewController.swift in Sources */,
+				DD6BC93E223AC2D100A8D782 /* SubBreedListResponse.swift in Sources */,
 				DD963DB022397CA1007F700E /* DogApi.swift in Sources */,
 				DD3EBD17223A7BB900F62509 /* BreedsTableViewController.swift in Sources */,
 				DDC8DA6E223A785800E90F94 /* BreedsListResponse.swift in Sources */,

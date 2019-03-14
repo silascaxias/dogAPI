@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Breeds Table View Controller-->
+        <!--Breeds List-->
         <scene sceneID="ruD-v9-KuJ">
             <objects>
                 <tableViewController id="dam-Xb-jWn" customClass="BreedsTableViewController" customModule="BreedsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,6 +35,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QnG-bv-gxb" kind="show" identifier="moveToDetails" id="ac3-bU-XGp"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -41,11 +45,116 @@
                             <outlet property="delegate" destination="dam-Xb-jWn" id="iGb-Ha-UEd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gGa-Sp-mqk"/>
+                    <navigationItem key="navigationItem" title="Breeds List" id="gGa-Sp-mqk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCN-Mu-CiL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1282" y="-598"/>
+        </scene>
+        <!--Breeds Details View Controller-->
+        <scene sceneID="MuU-bz-oW9">
+            <objects>
+                <viewController id="QnG-bv-gxb" customClass="BreedsDetailsViewController" customModule="BreedsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rZL-OA-J7l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pur-mF-HAx">
+                                <rect key="frame" x="16" y="89" width="288" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LKQ-Iu-OKt">
+                                <rect key="frame" x="40" y="171" width="240" height="214"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="3eZ-eX-EqE"/>
+                                    <constraint firstAttribute="height" constant="214" id="DQ2-iG-5D0"/>
+                                </constraints>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oo2-gr-mGe">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem width="185" style="plain" systemItem="fixedSpace" id="CtZ-a1-fav"/>
+                                    <barButtonItem title="Sub Breeds List" width="327" id="hJ9-Cr-Uid">
+                                        <connections>
+                                            <segue destination="hz4-Uq-OFj" kind="show" identifier="moveToSubBreeds" id="LP9-vl-oj3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LKQ-Iu-OKt" firstAttribute="top" secondItem="Pur-mF-HAx" secondAttribute="bottom" constant="54.5" id="2PZ-1P-vbt"/>
+                            <constraint firstItem="Jx8-So-n1f" firstAttribute="trailing" secondItem="LKQ-Iu-OKt" secondAttribute="trailing" constant="40" id="5e3-xu-sN7"/>
+                            <constraint firstItem="Pur-mF-HAx" firstAttribute="leading" secondItem="Jx8-So-n1f" secondAttribute="leading" constant="16" id="Dvs-ra-2PE"/>
+                            <constraint firstItem="LKQ-Iu-OKt" firstAttribute="leading" secondItem="Jx8-So-n1f" secondAttribute="leading" constant="40" id="Vlc-Y9-hLx"/>
+                            <constraint firstItem="Jx8-So-n1f" firstAttribute="trailing" secondItem="Pur-mF-HAx" secondAttribute="trailing" constant="16" id="aNL-gk-hfO"/>
+                            <constraint firstItem="Pur-mF-HAx" firstAttribute="top" secondItem="Jx8-So-n1f" secondAttribute="top" constant="25" id="jGY-vS-ru7"/>
+                            <constraint firstItem="Jx8-So-n1f" firstAttribute="bottom" secondItem="LKQ-Iu-OKt" secondAttribute="bottom" constant="183" id="kQu-Bn-aX1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jx8-So-n1f"/>
+                    </view>
+                    <connections>
+                        <outlet property="breedNameLabel" destination="Pur-mF-HAx" id="vqg-yN-dIw"/>
+                        <outlet property="imageView" destination="LKQ-Iu-OKt" id="ibE-Ou-ydW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uag-5g-pqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2025" y="-601.05633802816897"/>
+        </scene>
+        <!--Sub Breeds View Controller-->
+        <scene sceneID="NB1-32-cqC">
+            <objects>
+                <viewController id="hz4-Uq-OFj" customClass="SubBreedsViewController" customModule="BreedsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Niu-Cy-N7c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrB-Rp-l1s">
+                                <rect key="frame" x="16" y="81" width="288" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kks-6A-6D2">
+                                <rect key="frame" x="0.0" y="126" width="320" height="216"/>
+                            </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pcw-mc-2x1">
+                                <rect key="frame" x="27" y="350" width="267" height="201"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="201" id="B3b-il-rkr"/>
+                                    <constraint firstAttribute="width" constant="267" id="Kbe-0e-C3o"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Pcw-mc-2x1" firstAttribute="leading" secondItem="RfN-Dc-ckR" secondAttribute="leading" constant="27" id="0tU-by-WRR"/>
+                            <constraint firstItem="RfN-Dc-ckR" firstAttribute="trailing" secondItem="WrB-Rp-l1s" secondAttribute="trailing" constant="16" id="IFh-8I-3eK"/>
+                            <constraint firstItem="Pcw-mc-2x1" firstAttribute="top" secondItem="Kks-6A-6D2" secondAttribute="bottom" constant="8" id="K0U-8O-Rd5"/>
+                            <constraint firstItem="Kks-6A-6D2" firstAttribute="leading" secondItem="RfN-Dc-ckR" secondAttribute="leading" id="Pym-CC-1kL"/>
+                            <constraint firstItem="Kks-6A-6D2" firstAttribute="top" secondItem="WrB-Rp-l1s" secondAttribute="bottom" constant="17.5" id="SNA-8m-TiQ"/>
+                            <constraint firstItem="Kks-6A-6D2" firstAttribute="trailing" secondItem="RfN-Dc-ckR" secondAttribute="trailing" id="UIx-CI-iil"/>
+                            <constraint firstItem="RfN-Dc-ckR" firstAttribute="trailing" secondItem="Pcw-mc-2x1" secondAttribute="trailing" constant="26" id="WbP-Ke-V8V"/>
+                            <constraint firstItem="WrB-Rp-l1s" firstAttribute="top" secondItem="RfN-Dc-ckR" secondAttribute="top" constant="17" id="hrT-gv-uIU"/>
+                            <constraint firstItem="WrB-Rp-l1s" firstAttribute="leading" secondItem="RfN-Dc-ckR" secondAttribute="leading" constant="16" id="oxa-44-ju9"/>
+                            <constraint firstItem="RfN-Dc-ckR" firstAttribute="bottom" secondItem="Pcw-mc-2x1" secondAttribute="bottom" constant="17" id="utF-8y-p6h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RfN-Dc-ckR"/>
+                    </view>
+                    <connections>
+                        <outlet property="breedNameLabel" destination="WrB-Rp-l1s" id="gcw-NI-itK"/>
+                        <outlet property="imageView" destination="Pcw-mc-2x1" id="JVM-aC-3vF"/>
+                        <outlet property="pickerView" destination="Kks-6A-6D2" id="1Ab-cQ-L2g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wb-sy-gjv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2767.5" y="-601.05633802816897"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xRE-tE-UVr">
