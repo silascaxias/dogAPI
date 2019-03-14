@@ -77,7 +77,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem width="185" style="plain" systemItem="fixedSpace" id="CtZ-a1-fav"/>
-                                    <barButtonItem title="Sub Breeds List" width="327" id="hJ9-Cr-Uid"/>
+                                    <barButtonItem title="Sub Breeds List" width="327" id="hJ9-Cr-Uid">
+                                        <connections>
+                                            <segue destination="hz4-Uq-OFj" kind="show" identifier="moveToSubBreeds" id="LP9-vl-oj3"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -101,6 +105,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uag-5g-pqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2025" y="-601.05633802816897"/>
+        </scene>
+        <!--Sub Breeds View Controller-->
+        <scene sceneID="NB1-32-cqC">
+            <objects>
+                <viewController id="hz4-Uq-OFj" customClass="SubBreedsViewController" customModule="BreedsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Niu-Cy-N7c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrB-Rp-l1s">
+                                <rect key="frame" x="16" y="81" width="288" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kks-6A-6D2">
+                                <rect key="frame" x="0.0" y="126" width="320" height="216"/>
+                            </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pcw-mc-2x1">
+                                <rect key="frame" x="27" y="350" width="267" height="201"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="201" id="B3b-il-rkr"/>
+                                    <constraint firstAttribute="width" constant="267" id="Kbe-0e-C3o"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Pcw-mc-2x1" firstAttribute="leading" secondItem="RfN-Dc-ckR" secondAttribute="leading" constant="27" id="0tU-by-WRR"/>
+                            <constraint firstItem="RfN-Dc-ckR" firstAttribute="trailing" secondItem="WrB-Rp-l1s" secondAttribute="trailing" constant="16" id="IFh-8I-3eK"/>
+                            <constraint firstItem="Pcw-mc-2x1" firstAttribute="top" secondItem="Kks-6A-6D2" secondAttribute="bottom" constant="8" id="K0U-8O-Rd5"/>
+                            <constraint firstItem="Kks-6A-6D2" firstAttribute="leading" secondItem="RfN-Dc-ckR" secondAttribute="leading" id="Pym-CC-1kL"/>
+                            <constraint firstItem="Kks-6A-6D2" firstAttribute="top" secondItem="WrB-Rp-l1s" secondAttribute="bottom" constant="17.5" id="SNA-8m-TiQ"/>
+                            <constraint firstItem="Kks-6A-6D2" firstAttribute="trailing" secondItem="RfN-Dc-ckR" secondAttribute="trailing" id="UIx-CI-iil"/>
+                            <constraint firstItem="RfN-Dc-ckR" firstAttribute="trailing" secondItem="Pcw-mc-2x1" secondAttribute="trailing" constant="26" id="WbP-Ke-V8V"/>
+                            <constraint firstItem="WrB-Rp-l1s" firstAttribute="top" secondItem="RfN-Dc-ckR" secondAttribute="top" constant="17" id="hrT-gv-uIU"/>
+                            <constraint firstItem="WrB-Rp-l1s" firstAttribute="leading" secondItem="RfN-Dc-ckR" secondAttribute="leading" constant="16" id="oxa-44-ju9"/>
+                            <constraint firstItem="RfN-Dc-ckR" firstAttribute="bottom" secondItem="Pcw-mc-2x1" secondAttribute="bottom" constant="17" id="utF-8y-p6h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RfN-Dc-ckR"/>
+                    </view>
+                    <connections>
+                        <outlet property="breedNameLabel" destination="WrB-Rp-l1s" id="gcw-NI-itK"/>
+                        <outlet property="imageView" destination="Pcw-mc-2x1" id="JVM-aC-3vF"/>
+                        <outlet property="pickerView" destination="Kks-6A-6D2" id="1Ab-cQ-L2g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wb-sy-gjv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2767.5" y="-601.05633802816897"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xRE-tE-UVr">

@@ -64,7 +64,6 @@ class BreedsTableViewController: UITableViewController {
                 breedsDetailsViewController.breedName = selectedTask
                 breedsDetailsViewController.breedImage = breedImage
             }
-        }
-        
+        }        
     }
 }

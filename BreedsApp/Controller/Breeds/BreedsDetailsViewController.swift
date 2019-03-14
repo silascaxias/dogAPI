@@ -24,7 +24,10 @@ class BreedsDetailsViewController: UIViewController {
             imageView.image = data
         }
     }
-    
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let subBreedsViewController = segue.destination as? SubBreedsViewController {
+            subBreedsViewController.breed = breedName
+        }
+    }
 
 }
